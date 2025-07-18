@@ -35,7 +35,24 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <Header title="Home" />
       <ScrollView contentContainerStyle={styles.scroll}>
+        <Image
+          source={require("../assets/banner.jpg")}
+          style={styles.banner}
+          resizeMode="cover"
+        />
+
         <Text style={styles.title}>Featured Styles</Text>
+
+        {/* Category Badges */}
+        <View style={styles.badges}>
+          {["All", "Dresses", "Tops", "Jackets"].map((category, index) => (
+            <TouchableOpacity key={index} style={styles.badge}>
+              <Text style={styles.badgeText}>{category}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+
+        {/* Product Grid */}
         <View style={styles.grid}>
           {featuredItems.map((item) => (
             <TouchableOpacity key={item.id} style={styles.card}>
@@ -53,18 +70,42 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#f8f8f8",
   },
   scroll: {
     padding: 16,
-    paddingBottom: 80,
+    paddingBottom: 100,
+  },
+  banner: {
+    width: "100%",
+    height: 160,
+    borderRadius: 12,
+    marginBottom: 20,
   },
   title: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "bold",
-    marginBottom: 16,
-    color: "#333",
+    color: "#222",
     textAlign: "center",
+    marginBottom: 12,
+  },
+  badges: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 20,
+    flexWrap: "wrap",
+  },
+  badge: {
+    backgroundColor: "#EFE7FD",
+    paddingVertical: 6,
+    paddingHorizontal: 14,
+    borderRadius: 20,
+    marginBottom: 10,
+  },
+  badgeText: {
+    color: "#6200EE",
+    fontSize: 14,
+    fontWeight: "500",
   },
   grid: {
     flexDirection: "row",
@@ -72,7 +113,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   card: {
-    backgroundColor: "#ffffff",
+    backgroundColor: "#fff",
     width: "48%",
     marginBottom: 16,
     borderRadius: 12,
@@ -85,14 +126,14 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 200,
+    height: 180,
   },
   itemTitle: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: "600",
     paddingHorizontal: 10,
-    paddingTop: 10,
-    color: "#222",
+    paddingTop: 8,
+    color: "#333",
   },
   price: {
     fontSize: 14,
