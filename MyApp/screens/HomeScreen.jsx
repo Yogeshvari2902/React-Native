@@ -40,7 +40,9 @@ export default function HomeScreen() {
           style={styles.banner}
           resizeMode="cover"
         />
-
+        <Text style={styles.subtitle}>
+          Discover the latest trends and handpicked styles just for you!
+        </Text>
         <Text style={styles.title}>Featured Styles</Text>
 
         {/* Category Badges */}
@@ -141,5 +143,11 @@ const styles = StyleSheet.create({
     paddingBottom: 12,
     color: "#6200EE",
     fontWeight: "500",
+  },
+  subtitle: {
+    fontSize: 14,
+    color: "#555",
+    textAlign: "center",
+    marginBottom: 12,
   },
 });
